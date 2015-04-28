@@ -3,13 +3,19 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.views import serve
 from django.contrib import admin
-from projectname.home.views import HomeView
+from projectname.home.views import (
+    HomeView, CarPartsListView, CarPartDetailView, HelpView
+)
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^$', HomeView.as_view(), name='home'),    # noqa
+    url(r'^parts$', CarPartsListView.as_view(), name='parts_list'),
+    url(r'^parts/(?P<pk>\d+)$', CarPartDetailView.as_view(),
+        name='part_detail'),
+    url(r'^help$', HelpView.as_view(), name='help'),
 
     # static
     url(r'^%s(?P<path>.*)$' % settings.STATIC_URL.lstrip('/'), serve,
