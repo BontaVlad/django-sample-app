@@ -3,6 +3,16 @@
 {% block content %}
     <!-- Part info -->
     <div class="container">
-        <p>Display car part information</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ object.name }}</h3>
+            </div>
+            <div class="panel-body">
+                <p class="col-md-6">Price:</p><p class="col-md-6">{{ object.price }}</p>
+                <p class="col-md-6">Stock count:<p class="col-md-6">{{ object.stock_count }}</p>
+                <p class="col-md-6">Manufactured date:</p> <p class="col-md-6">{{ object.manufacturing_date }}</p>
+                <p class="col-md-6">Available until:</p> <p class="col-md-6">{{ object.available_until }}</p>
+            </div>
+        </div>
     </div> <!-- End of container -->
 {% endblock %}

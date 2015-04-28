@@ -1,4 +1,5 @@
 #! /usr/bin/env python2.7
+from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, DetailView
 
 from projectname.home.models import CarPart
@@ -15,7 +16,6 @@ class HelpView(TemplateView):
 
 class CarPartsListCreateView(CreateView):
     template_name = "list.html"
-    form_class = None
     parser_class = AgmGroupParser
     success_url = 'parts_list'
     model = CarPart
@@ -25,6 +25,9 @@ class CarPartsListCreateView(CreateView):
         return super(
             CarPartsListCreateView, self).get_context_data(*args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        self.model.objects.make_objects(self.parser_class().parse())
+        return render(request, self.success_url, self.get_context_data())
 
 
 class CarPartDetailView(DetailView):
