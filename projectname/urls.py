@@ -26,3 +26,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin_tools/', include('admin_tools.urls')),
 )
+
+urlpatterns += patterns('', url(r'^silk/', include('silk.urls',
+                                                   namespace='silk')))
