@@ -6,3 +6,4 @@ ipython==2.3.1
 six==1.9.0
 sqlparse==0.1.13
 wsgiref==0.1.2
+beautifulsoup4==4.3.2
