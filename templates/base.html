@@ -29,23 +29,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Car Shop</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Car Shop</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'parts_list' %}">Car parts</a></li>
             <li><a href="{% url 'help' %}">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -53,7 +44,7 @@
     {% block content %}{% endblock %}
 
     <footer>
-        <p>&copy; Profile motherfucker do you know it?</p>
+        <p>&copy; Bonta Vlad <a href="http://bontavlad.github.io">bontavlad.github.io</a></p>
     </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
