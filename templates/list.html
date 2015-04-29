@@ -13,6 +13,9 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Stock number</th>
+                    <th>Manufacturer</th>
+                    <th>Seller</th>
+                    <th>Buyer</th>
                     <th>Manufacturing date</th>
                     <th>Available until</th>
                 </tr>
@@ -23,6 +26,9 @@
                         <td><a href={% url 'part_detail' obj.id %}>{{ obj.name }}</a</td>
                         <td>{{ obj.price }}</td>
                         <td>{{ obj.stock_count }}</td>
+                        <td>{{ obj.manufacturer.name }}</td>
+                        <td>{{ obj.manufacturer.seller.name }}</td>
+                        <td>{{ obj.buyer.name }}</td>
                         <td>{{ obj.manufacturing_date }}</td>
                         <td>{{ obj.available_until }}</td>
                     </tr>

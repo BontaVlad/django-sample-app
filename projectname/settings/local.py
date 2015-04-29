@@ -38,11 +38,11 @@ if DEBUG:
     MEDIA_URL = STATIC_URL + 'media/'
 
     INSTALLED_APPS += (
-        # 'debug_toolbar',
-        'silk',
+        'debug_toolbar',
+        # 'silk',
     )
 
     MIDDLEWARE_CLASSES += (
-        # 'debug_toolbar.middleware.DebugToolbarMiddleware',
-        'silk.middleware.SilkyMiddleware',
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+        # 'silk.middleware.SilkyMiddleware',
     )
