@@ -14,8 +14,11 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     'default': {
         # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sample_project_database',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'profile_db',
+        'USER': 'profiler_1',
+        'PASSWORD': 'pass',
+        'HOST': 'localhost',
     }
 }
 
