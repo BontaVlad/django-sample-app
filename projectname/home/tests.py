@@ -1,16 +1,20 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
+from django.test import TestCase, RequestFactory
 
-Replace this with more appropriate tests for your application.
-"""
+from pycallgraph import PyCallGraph
+from pycallgraph.output import GraphvizOutput
 
-from django.test import TestCase
+from home.views import CarPartsListCreateView
 
 
 class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+
+    def setUp(self):
+        self.factory = RequestFactory()
+
+    def test_request_factory_get_request(self):
+        request = self.factory.get('')
+        graphviz = GraphvizOutput(output_file='get_parts.png')
+
+        with PyCallGraph(output=graphviz):
+            response = CarPartsListCreateView.as_view()(request=request)
+        self.assertEqual(response.status_code, 200)
