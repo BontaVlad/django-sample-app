@@ -39,13 +39,3 @@ if DEBUG:
     # URL that handles the media, static, etc.
     STATIC_URL = '/static/'
     MEDIA_URL = STATIC_URL + 'media/'
-
-    INSTALLED_APPS += (
-        'debug_toolbar',
-        # 'silk',
-    )
-
-    MIDDLEWARE_CLASSES += (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-        # 'silk.middleware.SilkyMiddleware',
-    )
