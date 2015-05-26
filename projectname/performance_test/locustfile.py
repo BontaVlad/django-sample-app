@@ -15,7 +15,7 @@ class UserBehaviour(TaskSet):
 
     @task(1)
     def get_parts_detail(self):
-        self.client.get("/parts/{}".format(random.randrange(100),
+        self.client.get("/parts/{}".format(random.randrange(1500, 1700),
                                            name="/parts/[id]"))
 
 
