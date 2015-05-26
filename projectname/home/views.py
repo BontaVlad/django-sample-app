@@ -20,6 +20,14 @@ class CarPartsListCreateView(ListView):
     success_url_name = 'parts_list'
     model = CarPart
 
+    def get(self, request, *args, **kwargs):
+        import cProfile
+        cProfile.runctx(
+            "super(CarPartsListCreateView, self).get(request, args, kwargs)",
+            globals(), locals(), filename="get_parts_list.prof")
+        return super(CarPartsListCreateView, self).get(
+            request, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         self.model.objects.make_objects(self.harvester_class().harvest())
         return redirect(self.success_url_name)
