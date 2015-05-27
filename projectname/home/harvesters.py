@@ -35,6 +35,9 @@ class NameHarvester(object):
         )
 
     def harvest(self):
+        import pprofile
+        profiler = pprofile.Profile()
+        profiler.enable()
         objects = []
         div = self.soup.findAll('div', {'id': "mw-content-text"})[0]
 
@@ -45,6 +48,9 @@ class NameHarvester(object):
                 objects.append({
                     'name': name[0],
                 })
+        profiler.disable()
+        with open('names_harvest.prof', 'w+') as out:
+            profiler.callgrind(out)
 
         return objects
 

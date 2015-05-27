@@ -3,15 +3,10 @@ from datetime import datetime, timedelta
 
 from django.db import models
 
-import pprofile
-
-profiler = pprofile.Profile()
-
 
 def random_date(start, end):
-    with profiler:
-        return start + timedelta(
-            seconds=randint(0, int((end - start).total_seconds())))
+    return start + timedelta(
+        seconds=randint(0, int((end - start).total_seconds())))
 
 
 class CarPartManager(models.Manager):
